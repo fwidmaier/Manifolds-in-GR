@@ -1,0 +1,128 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{counter}{book}{}
+      \name{author}{2}{}{%
+        {{hash=fb098986a6d0910c7a02c4f6cc6e15f3}{%
+           family={Arthur\bibnamedelima Steen},
+           familyi={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Lynn},
+           giveni={L\bibinitperiod}}}%
+        {{hash=573d48a81ef26d0cca9eff9699c66524}{%
+           family={Arthur\bibnamedelima Seebach},
+           familyi={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York, NY}%
+      }
+      \strng{namehash}{db951cc494bc26b0381c559d2d93ff87}
+      \strng{fullhash}{db951cc494bc26b0381c559d2d93ff87}
+      \strng{bibnamehash}{db951cc494bc26b0381c559d2d93ff87}
+      \strng{authorbibnamehash}{db951cc494bc26b0381c559d2d93ff87}
+      \strng{authornamehash}{db951cc494bc26b0381c559d2d93ff87}
+      \strng{authorfullhash}{db951cc494bc26b0381c559d2d93ff87}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Counterexamples in Topology}
+      \field{year}{1978}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-6290-9
+      \endverb
+    \endentry
+    \entry{jost}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9dad1ae12f6d3956f7a954184d05d6b7}{%
+           family={Jost},
+           familyi={J\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{fullhash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{bibnamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorbibnamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authornamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorfullhash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{series}{Universitext}
+      \field{title}{Riemannian Geometry and Geometric Analysis}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1007/978-3-319-61860-9
+      \endverb
+    \endentry
+    \entry{wiki}{misc}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labeltitlesource}{title}
+      \field{note}{Online accessed on 03/12/2024}
+      \field{title}{ProofWiki}
+      \verb{urlraw}
+      \verb https://proofwiki.org/wiki/First-Countable_Space_is_Hausdorff_iff_All_Convergent_Sequences_have_Unique_Limit
+      \endverb
+      \verb{url}
+      \verb https://proofwiki.org/wiki/First-Countable_Space_is_Hausdorff_iff_All_Convergent_Sequences_have_Unique_Limit
+      \endverb
+    \endentry
+    \entry{toenniessen}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b7a1a40614557651ca9d7c515832b515}{%
+           family={Toenniessen},
+           familyi={T\bibinitperiod},
+           given={Fridtjof},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Spektrum Berlin, Heidelberg}%
+      }
+      \strng{namehash}{b7a1a40614557651ca9d7c515832b515}
+      \strng{fullhash}{b7a1a40614557651ca9d7c515832b515}
+      \strng{bibnamehash}{b7a1a40614557651ca9d7c515832b515}
+      \strng{authorbibnamehash}{b7a1a40614557651ca9d7c515832b515}
+      \strng{authornamehash}{b7a1a40614557651ca9d7c515832b515}
+      \strng{authorfullhash}{b7a1a40614557651ca9d7c515832b515}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{title}{Topologie}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1007/978-3-662-54964-3
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

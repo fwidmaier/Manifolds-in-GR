@@ -1,0 +1,217 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage{mlmodern}
+\usepackage{tikz}
+\usepackage{float}
+
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape\bfseries}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage{biblatex}
+
+\bibliography{bibliography} 
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{iremark}
+
+\makeatletter
+\renewcommand\@endtheorem{\vvv@endmarker\endtrivlist\@endpefalse}
+\newcommand\vvv@endmarker{%
+  {\unskip\nobreak\hfil\penalty50
+  \hskip2em\vadjust{}\nobreak\hfill$\blacktriangleleft$
+  \parfillskip=0pt \finalhyphendemerits=0 \par
+  \penalty 10000 \parskip=0pt\noindent}\ignorespaces}
+\makeatother
+
+
+\newtheorem{claim}{Claim}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\d}{\mathrm{d}}
+
+\title{\textbf{\textsf{Lost in space and time: Why topological considerations matter for spacetime}}}
+\author{Felix Widmaier\thanks{\href{mailto:felixwidmaier [at] gmx.de}{\texttt{felixwidmaier[at]gmx.de}}}}
+\date{December 2024}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+    \noindent In the lecture ‘Introduction to General Relativity’ by Jens Niemeyer in the winter semester 2024/25, manifolds 
+    have been introduced as spaces which are locally Euclidean and which have a smooth differentiable structure. 
+    This definition differs significantly from the ‘classical’ definition in the mathematical literature. 
+    There, it is often additionally required that manifolds are paracompact and Hausdorff. \cite{jost} After the lecture, 
+    I conjectured that these topological constraints could be implicitly inferred. However, this assumption is wrong. 
+    There are certainly topological spaces which are neither Hausdorff nor paracompact, but which fulfil the above 
+    ‘weaker’ definition of a manifold. This results in considerable restrictions for the geometry and analysis on such 
+    manifolds (and thus also for physics).
+\end{abstract}
+
+\section{Topological pathologies and pathological topology}
+Topology, like differential geometry, is a very rich and beautiful field of mathematics that is often riddled with 
+counterintuitive results\footnote{see for example \cite{counter} for a whole book about counter examples in topology} 
+that make topology nevertheless enjoyable and hence even worthier of thorough study. For example, the notion of a manifold 
+has gradually become more sophisticated in mathematics and makes use of some topological constraints on the underlying 
+topological spaces, which may not seem particularly intuitive at first.
+A rather classical definition of manifolds from \cite{jost} is
+\begin{definition}[Manifold, \cite{jost}]
+    A manifold is a connected paracompact Hausdorff and locally Euclidean space.
+\end{definition}
+These topological restrictions are imposed for good reasons, to exclude some pathological spaces that are not suitable for 
+modelling (or simply for aesthetic reasons). Nevertheless, it may be a fruitful endeavour to explore why these constraints 
+are imposed on the underlying spaces - and to what extent the notion of a manifold might change if one weakens the definition 
+of a manifold by dropping some of these constraints. As we will see in this little essay, these constraints do 
+not ``come for free'' in the sense that they just follow from other impositions on the underlying spaces. Dropping these 
+topological considerations has a major impact on analysis and hence physics that should be modelled with such spaces. 
+For example, if one omits the constraint, that the underlying space has to be Hausdorff, one has to expect that converging 
+sequences can admit multiple limit points:\newpage
+\begin{theorem}[Hausdorffness and uniqueness of limits, \cite{wiki}]
+    Let $X$ be a first-countable\footnote{A topological space is first-countable if every point has a countable local basis. 
+    For example, every Hausdorff space which is locally Euclidean and connected is first countable} topological space. 
+    Then the following are equivalent:
+    \begin{itemize}
+        \item $X$ is Hausdorff,
+        \item every convergent sequence in $X$ has a unique limit.
+    \end{itemize}
+\end{theorem}
+As this is a classical result in topology,\footnote{see \cite{wiki}} we will omit the proof. 
+Converging sequences having multiple limit points seems like a rather inappropriate choice of topological spaces 
+- especially when it comes to modelling (classical) physical systems with such spaces.
+Furthermore, the following theorem holds
+\begin{theorem}[Paracompactness and partition of unity, \cite{toenniessen}]
+    A topological Hausdorff space is paracompact if and only if every open cover admits a subordinate partition of unity.
+\end{theorem}
+However, the partition of unity is an important tool for drawing certain local definitions to global ones. 
+A classic example where the partition of unity is used is the proof that every manifold has a Riemannian metric. 
+Moreover, the notion of integral on a manifold is often only made possible by the partition of unity. 
+Therefore, if one cannot guarantee the existence of it, one would still have to justify why certain concepts such as 
+the integral etc. are well-defined.
+
+As outlined in the abstract of this essay, let us now study an example of a topological space that can be considered a 
+``manifold'' if one drops the constraint of Hausdorffness and paracompactness:
+\section{The line with many origins}
+The line with many origins is a classical and famous topological space, as it serves as many counterexamples. 
+We will now construct such a 'line with many origins' and we will see that it is neither Hausdorff nor paracompact, 
+but it still fits the 'relaxed' definition of a manifold. Let us start with the definition:
+\begin{definition}[The line with many origins]
+    Let $I$ be some index set. We define the line of many origins as the topological space
+    \begin{align*}
+        L := \left(\coprod_{i\in I}\R\right)/_\sim
+    \end{align*}
+    where
+    \begin{align*}
+        (x, i)\sim (y,j) :\Leftrightarrow (x=y\land x\neq 0)
+    \end{align*}
+    for all $i,j\in I$ and $\R$ carries the usual topology induced by the metric $d(x,y) = \vert x-y\vert$.
+\end{definition}
+For shorthand notation, we denote $0_i$ for the origin in the $i$-th copy of $\R$. For points $x\in L$ that 
+differ from the origins, the neighbourhood basis just coincides with the neighbourhood basis for $\R$ with the 
+usual topology. Hence
+\begin{align*}
+    \{(-\varepsilon + x, x + \varepsilon):\varepsilon>0\}
+\end{align*}
+is the neighbourhood basis for such points. On the other hand, each $0_i\in L$ has its own ``copy'' of neighbourhoods 
+from $\R$ around the origin. Hence
+\begin{align*}
+    \{(-\varepsilon,0)\cup\{0_i\}\cup(0,\varepsilon):\varepsilon>0\}
+\end{align*}
+is the neighbourhood basis for the origin $0_i$. Let $B_i(\varepsilon) := (-\varepsilon,0)\cup\{0_i\}\cup(0,\varepsilon)$ 
+be the $\varepsilon$-ball around the origin $0_i$.
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=3]
+        \draw (-2,0) -- (-1/8, 0) node[draw, inner sep=0.6pt, circle,at end, anchor=west]{};
+        \draw (1/8, 0) -- (2, 0) node[draw, inner sep=0.6pt, circle,at start, anchor=east]{};
+        \foreach \i in {1, ..., 4}
+        {
+        \fill (0, \i/4-5/8) node[fill, inner sep=0.6pt, circle]{};
+        }
+        \draw (0, -1/2) node{\vdots};
+        \draw (0, 1/2) node[above]{\vdots};
+    \end{tikzpicture}
+    \caption{Illustration of the line with many origins}
+\end{figure}
+\begin{claim}
+    The topological space $L$ satisfies the 'relaxed' definition of a manifold. (i.e. $L$ is locally Euclidean and 
+    has a smooth differentiable structure)
+\end{claim}
+\begin{proof}
+    We prove this claim in several steps:
+    \begin{itemize}
+        \item To show that $L$ is locally Euclidean, we only need to consider neighbourhoods around the origins. 
+		Let $i\in I$ and $\varepsilon > 0$. There is an obvious bijection
+        \begin{align*}
+            \phi\colon L\supset B_i(\varepsilon)\to (-\varepsilon,\varepsilon)\subset\R.
+        \end{align*}
+        Wlog\footnote{the cases when $0\notin U$ are essentially boring as $\phi$ just becomes the identity on such elements.} 
+	take some $\eta, \kappa < \varepsilon$ and set $U = (-\kappa, \eta)$. 
+	Then $\phi^{-1}(U) = (-\kappa, 0)\cup\{0_i\}\cup(0,\eta)$ is open in $L$. 
+	Hence we immediately see that $L$ is locally Euclidean.
+        \item Let $i\in I$ and $L_i := L\setminus\{0_j:i\neq j\}$. Then we may define the continuous maps
+        \begin{align*}
+            \phi_i\colon L_i\to\R,\ x\mapsto \begin{cases}
+                0,\qquad&\text{for } x\neq 0_i,\\
+                x,\qquad&\text{otherwise}.
+            \end{cases}
+        \end{align*}
+        Then $\{L_i, \phi_i\}_{i\in I}$ is an atlas for $L$. Furthermore,
+        \begin{align*}
+            \phi_i\circ\phi_j^{-1}\colon \R\setminus\{0\}\to \R\setminus\{0\}
+        \end{align*}
+        is differentiable of class $C^{\infty}$ for every $i,j\in I$ as $\phi_i$ and $\phi_j^{-1}$ just 
+	become the identity functions on elements that are not $0$.
+    \end{itemize}
+\end{proof}
+\newpage
+\begin{claim}
+    The topological space $L$ is not Hausdorff and, if the index set $I$ is infinite, then $L$ is not paracompact.
+\end{claim}
+\begin{proof}
+    We again prove this claim in several steps:
+    \begin{itemize}
+        \item First, we show that $L$ is not Hausdorff. Let $i, j\in I$ with $i\neq j$. Let $U_i$ be some neighbourhood 
+		of $0_i$ and $U_j$ be some neighbourhood of $0_j$ such that $U_i\cap U_j = \emptyset$. 
+		We have seen that the neighbourhood basis of the origin $0_i$ is provided by $B_i(\varepsilon)$ 
+		for some $\varepsilon>0$. Hence, there are $\varepsilon_i, \varepsilon_j> 0$ such 
+		that $B_i(\varepsilon_i)\subset U_i$ and $B_j(\varepsilon_j)\subset U_j$. 
+		But $B_i(\varepsilon_i)\cap B_j(\varepsilon_j)\neq\emptyset$ and hence $U_i\cap U_j\neq\emptyset$. 
+		This is a contradiction and thus $L$ cannot be Hausdorff.
+        \item Consider the open cover $(U_i)_{i\in I}$ of $L$ where
+        \begin{align*}
+            U_i := (-\infty,0)\cup\{0_i\}\cup(0,\infty).
+        \end{align*}
+        Let $(V_k)_{k}$ be some refinement of $(U_i)_i$. 
+	Define $\mathcal{S}:= \{k\mid\exists i\in I: 0_i\in V_k\}$. Let $j\in I$ be fixed 
+	and $U$ be some open neighbourhood of $0_j$. Then there is some $k'\in\mathcal{S}$ such 
+	that $U\cap V_{k'}\neq\emptyset$. So there is $\varepsilon>0$ with $B_j(\varepsilon)\subset U\cap V_{k'}$. 
+	But for every $k\in\mathcal{S}$ there is some $\delta>0$ such that $[(-\delta,\delta)\setminus\{0\}]\subset V_k$. 
+	Hence 
+        \begin{align*}
+            \emptyset\neq B_j(\varepsilon)\cap V_k\subset U\cap V_k
+        \end{align*}
+        for all $k\in\mathcal{S}$. If $I$ is infinite, $\mathcal{S}$ must also be infinite. 
+	Thus we conclude that $L$ can not be paracompact if $I$ is infinite.
+    \end{itemize}
+\end{proof}
+\section{Conclusion}
+We have seen that dropping topological constraints like Hausdorffness and paracompactness leads to pathological spaces with 
+undesirable properties, as illustrated by the line with many origins. These constraints are therefore essential for ensuring 
+well-behaved manifolds suitable for geometry, analysis, and physics.
+\printbibliography
+\end{document}
